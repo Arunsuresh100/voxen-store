@@ -1,5 +1,5 @@
-import { ProductProvider } from '../components/ProductContext.jsx'; // FIX: Corrected import path
-import Navbar from '../components/Navbar.jsx'; // FIX: Corrected import path
+import { ProductProvider } from '../components/ProductContext.jsx'; 
+import Navbar from '../components/Navbar.jsx'; 
 import './globals.css';
 import type { Metadata } from 'next';
 
@@ -15,8 +15,11 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="en">
-			<body className="bg-gray-50 min-h-screen antialiased">
-				{/* The ProductProvider must wrap the entire application content */}
+            {/* FIX: Added suppressHydrationWarning to ignore browser extensions */}
+			<body 
+                className="bg-gray-50 min-h-screen antialiased"
+                suppressHydrationWarning={true}
+            >
 				<ProductProvider> 
 					<Navbar />
 					{children}
